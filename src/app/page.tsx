@@ -1,95 +1,62 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+"use client"
+import {useState} from "react";
+import {pageList} from "@/app/data";
+import FirstPage from "@/app/Components/FirstPage";
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    const [index, setIndex] = useState(0);
+
+    function handleNextClick(){
+        if (index < pageList.length -1){
+            setIndex(index + 1);
+            console.log(index);
+        }
+    }
+
+    function handleButton(){
+        if (index < pageList.length-1){
+
+            return(
+                <button onClick={handleNextClick}>Next</button>
+            )
+        }
+        else {
+            return (
+                <button>Submit</button>
+            )
+        }
+    }
+
+    function handlePageRendering(){
+
+        switch(index) {
+            case 0:
+                return <FirstPage />;
+            case 1:
+                return <h1>Placeholder for second page</h1>;
+            case 2:
+                return <h1>Placeholder for third page</h1>;
+            default:
+                return <FirstPage />;
+        }
+    }
+
+
+  return (
+      <>
+        <h1 className="text-center mt-4">Mortgage Fact Finder</h1>
+
+          <div className="text-center">
+              <h1 className="mt-4">{pageList[index].text}</h1>
+              <h3 className="mt-4">({index + 1} of {pageList.length})</h3>
+          </div>
+
+          <div>
+              {handlePageRendering()}
+          </div>
+          <div className="d-flex justify-content-center mt-4">
+              {handleButton()}
+          </div>
+      </>
   );
 }
