@@ -13,6 +13,7 @@ export default function Home() {
         }
     }
 
+
     function handleButton(){
         if (index < pageList.length-1){
 
@@ -22,10 +23,11 @@ export default function Home() {
         }
         else {
             return (
-                <button>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
             )
         }
     }
+
 
     function handlePageRendering(){
 
@@ -33,12 +35,18 @@ export default function Home() {
             case 0:
                 return <FirstPage />;
             case 1:
-                return <h1>Placeholder for second page</h1>;
+                return <h1 className="text-center">Placeholder for second page</h1>;
             case 2:
-                return <h1>Placeholder for third page</h1>;
+                return <h1 className="text-center">Placeholder for third page</h1>;
             default:
                 return <FirstPage />;
         }
+    }
+
+    function handleSubmit(){
+        // Placeholder for now
+        alert("Submitted!")
+
     }
 
 
@@ -54,9 +62,11 @@ export default function Home() {
           <div>
               {handlePageRendering()}
           </div>
-          <div className="d-flex justify-content-center mt-4">
+          <div className="d-flex justify-content-center mt-4 ml">
               {handleButton()}
+
           </div>
+
       </>
   );
 }
