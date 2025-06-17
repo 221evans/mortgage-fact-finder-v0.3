@@ -2,6 +2,7 @@
 import {useState} from "react";
 import {pageList} from "@/app/data";
 import FirstPage from "@/app/Components/FirstPage";
+import SecondPage from "@/app/Components/SecondPage";
 export default function Home() {
 
     const [index, setIndex] = useState(0);
@@ -35,7 +36,7 @@ export default function Home() {
             case 0:
                 return <FirstPage />;
             case 1:
-                return <h1 className="text-center">Placeholder for second page</h1>;
+                return <SecondPage />;
             case 2:
                 return <h1 className="text-center">Placeholder for third page</h1>;
             default:
@@ -52,7 +53,7 @@ export default function Home() {
 
   return (
       <>
-        <h1 className="text-center mt-4">Mortgage Fact Finder</h1>
+        <h1 className="text-center mt-4">Mortgage Fact Find</h1>
 
           <div className="text-center">
               <h1 className="mt-4">{pageList[index].text}</h1>
