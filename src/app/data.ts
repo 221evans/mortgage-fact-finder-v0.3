@@ -12,6 +12,13 @@ export const pageList: PageItem[] = [
     },
     {
         text: 'page 3',
+    },
+    {
+        text: 'page 4',
+    },
+    {
+        text: 'page 5',
     }
+
 
 ]

@@ -3,6 +3,7 @@ import {useState} from "react";
 import {pageList} from "@/app/data";
 import FirstPage from "@/app/Components/FirstPage";
 import SecondPage from "@/app/Components/SecondPage";
+import ThirdPage from "@/app/Components/ThirdPage";
 export default function Home() {
 
     const [index, setIndex] = useState(0);
@@ -14,17 +15,31 @@ export default function Home() {
         }
     }
 
+    function handleBackClick(){
+        if (index > 0){
+            setIndex(index - 1);
+        }
+    }
+
 
     function handleButton(){
         if (index < pageList.length-1){
 
             return(
-                <button onClick={handleNextClick}>Next</button>
+                <div className="d-flex justify-content-center">
+                    <button className="m-3" onClick={handleBackClick}>Back</button>
+                    <button className="m-3" onClick={handleNextClick}>Next</button>
+                </div>
+
             )
         }
         else {
             return (
-                <button onClick={handleSubmit}>Submit</button>
+                <div>
+                    <button className="m-3" onClick={handleBackClick}>Back</button>
+                    <button className="m-3" onClick={handleSubmit}>Submit</button>
+                </div>
+
             )
         }
     }
@@ -38,7 +53,11 @@ export default function Home() {
             case 1:
                 return <SecondPage />;
             case 2:
-                return <h1 className="text-center">Placeholder for third page</h1>;
+                return <ThirdPage />;
+            case 3:
+                return <h1 className="text-center">Placeholder for fourth page</h1>;
+            case 4:
+                return <h1 className="text-center">Placeholder for fifth page</h1>;
             default:
                 return <FirstPage />;
         }
