@@ -16,4 +16,5 @@ export const pageList: PageItem[] = [
         id: 3,
         text: 'page 3',
     },
+    // Add more below if further pages are required
 ]

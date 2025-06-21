@@ -4,6 +4,7 @@ import {pageList} from "@/app/data";
 import FirstPage from "@/app/Components/FirstPage";
 import SecondPage from "@/app/Components/SecondPage";
 import ThirdPage from "@/app/Components/ThirdPage";
+import {Button} from "react-bootstrap";
 export default function Home() {
 
     const [index, setIndex] = useState(0);
@@ -27,8 +28,8 @@ export default function Home() {
 
             return(
                 <div className="d-flex justify-content-center">
-                    <button className="m-3" onClick={handleBackClick}>Back</button>
-                    <button className="m-3" onClick={handleNextClick}>Next</button>
+                    <Button className="m-3" variant="primary" onClick={handleBackClick}>Back</Button>
+                    <Button className="m-3" variant="primary" onClick={handleNextClick}>Next</Button>
                 </div>
 
             )
@@ -36,8 +37,8 @@ export default function Home() {
         else {
             return (
                 <div>
-                    <button className="m-3" onClick={handleBackClick}>Back</button>
-                    <button className="m-3" onClick={handleSubmit}>Submit</button>
+                    <Button className="m-3" variant="primary" onClick={handleBackClick}>Back</Button>
+                    <Button className="m-3" variant="success" onClick={handleSubmit}>Submit</Button>
                 </div>
 
             )
