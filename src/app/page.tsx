@@ -8,14 +8,14 @@ export default function Home() {
 
     const [index, setIndex] = useState(0);
 
-    function handleNextClick(){
+    function handleNextClick(): void{
         if (index < pageList.length -1){
             setIndex(index + 1);
             console.log(index);
         }
     }
 
-    function handleBackClick(){
+    function handleBackClick(): void{
         if (index > 0){
             setIndex(index - 1);
         }
@@ -63,7 +63,7 @@ export default function Home() {
         }
     }
 
-    function handleSubmit(){
+    function handleSubmit(): void{
         // Placeholder for now
         alert("Submitted!")
 
