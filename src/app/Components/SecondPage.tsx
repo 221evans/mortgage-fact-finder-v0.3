@@ -44,7 +44,7 @@ export default function SecondPage(){
                     <Row>
                         <Col md={4}>
                             <Form.Group>
-                                <Form.Label>LDate moved into your current address</Form.Label>
+                                <Form.Label>Date moved into your current address</Form.Label>
                                 <Form.Control type="date" placeholder="Enter Date ">
 
                                 </Form.Control>
